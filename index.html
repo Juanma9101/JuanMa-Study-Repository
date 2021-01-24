@@ -29,7 +29,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="col-10 fullapp">
+      <div class="col-12 fullapp">
         <div class="row">
           <div class="col-6">
             <h4 style="margin-top: 20px" class="main_title">
@@ -37,7 +37,7 @@
             </h4>
             <h1 class="MainCity" id="the-city">Bogotá D.C.</h1>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <form id="search-form">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label"></label>
@@ -51,11 +51,17 @@
                 />
               </div>
 
-              <button type="submit" class="btn btn-primary">Change city</button>
+              <button
+                style="margin-top: 10px"
+                type="submit"
+                class="btn btn-primary"
+              >
+                Change city
+              </button>
+              <button id="current-location" class="button-location">
+                Current Location
+              </button>
             </form>
-            <button id="current-location" class="button-location">
-              Current Location
-            </button>
           </div>
         </div>
         <div class="row">
@@ -92,17 +98,32 @@
           </div>
           <div class="col-2">
             <p class="moreInfoBox">
-              Wind:<span
-                id="wind-info"
+              Feels Like:<span
+                id="feels-like"
                 style="text-align: left; font-size: 12px"
-                >100 m/s</span
+                >50º</span
               >
             </p>
             <img
               style="max-width: 100%"
               class="moreInfoBox"
-              src="https://cdn0.iconfinder.com/data/icons/sketchy-weather-icons-by-azuresol/256/23_cloud_weather.png"
-              alt="wind"
+              src="https://cdn0.iconfinder.com/data/icons/sketchy-weather-icons-by-azuresol/256/09_cloud_weather.png"
+              alt="precipitation"
+            />
+          </div>
+          <div class="col-2">
+            <p class="moreInfoBox">
+              Feels Like:<span
+                id="feels-like"
+                style="text-align: left; font-size: 12px"
+                >50º</span
+              >
+            </p>
+            <img
+              style="max-width: 100%"
+              class="moreInfoBox"
+              src="https://cdn0.iconfinder.com/data/icons/sketchy-weather-icons-by-azuresol/256/09_cloud_weather.png"
+              alt="precipitation"
             />
           </div>
           <div class="col-1"></div>
@@ -116,7 +137,7 @@
         href="https://github.com/Juanma9101/JuanMa-Study-Repository"
         >Open Source Code by:
       </a>
-      <p style="display: inline">Juan Manuel Patiño</p>
+      <p style="display: inline">Juan Manuel Patiño Herrera</p>
     </div>
     <script src="src/index.js"></script>
   </body>

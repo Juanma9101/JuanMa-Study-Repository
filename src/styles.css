@@ -2,6 +2,11 @@ h1 {
   font-family: "Oswald", sans-serif;
 }
 
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .main_title {
   font-size: 25px;
 }
