@@ -9,12 +9,12 @@ let day = [
   "Friday",
   "Saturday",
 ];
-debugger;
+
 let timePlaceholder = document.querySelector("#current-date");
 let currentDay = day[now.getDay()];
 let currentHour = now.getHours();
 let currentMinute = now.getMinutes();
-console.log(currentDay);
+
 timePlaceholder.innerHTML = `${currentDay} ${currentHour}:${currentMinute}`;
 
 //Change City and calls function show tempo current
@@ -22,7 +22,7 @@ timePlaceholder.innerHTML = `${currentDay} ${currentHour}:${currentMinute}`;
 function showTempCurrent(response) {
   console.log(response);
   let currentCity = response.data.name;
-  console.log(currentCity);
+
   //change city
   let appCity = document.querySelector("#the-city");
   appCity.innerHTML = `${currentCity}`;
@@ -34,11 +34,13 @@ function showTempCurrent(response) {
   let currentFeelsLike = Math.round(response.data.main.feels_like);
   let feelLike = document.querySelector("#feels-like");
   feelLike.innerHTML = `${currentFeelsLike}º`;
-  console.log(currentFeelsLike);
-  //wind
-  let currentWind = response.data.wind.speed;
-  let wind = document.querySelector("#wind-info");
-  wind.innerHTML = `${currentWind} m/s`;
+  //change Icon
+  let iconMain = document.querySelector("#icon-main");
+  iconMain.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconMain.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
 function changeCity(event) {
@@ -51,10 +53,11 @@ function changeCity(event) {
     .then(showTempCurrent);
 }
 
+//City Search Selector
 let userCity = document.querySelector("#search-form");
 userCity.addEventListener("submit", changeCity);
 
-//challenge 3
+//Convert Temperature
 
 function changeCelcius(event) {
   let appCelcius = document.querySelector("#current-temp");
@@ -77,7 +80,6 @@ tempF.addEventListener("click", changeCFar);
 function getPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  console.log(position);
   let apiKey = "b42ac237acb0c2946d3192e9602ec4be";
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather?";
   axios
